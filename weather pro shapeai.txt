@@ -4,9 +4,10 @@ from datetime import datetime
 def time_from_utc_with_timezone(utc_with_tz):
 local_time= datetime.utcformattimestamp(utc_with_tz)
 	return local_time.time()
-api_key=""
+api_key="f4a0aadf301e872140e2851ec06956ff "
 city_name =input("enter city name :")
-weather_url= '
+weather_url= api.openweathermap.org/data/2.5/weather?q={city name}&appid={"f4a0aadf301e872140e2851ec06956ff "}
+
 response=requsts.get(weathert_url)
 
 weather_data = response.json()
