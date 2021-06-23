@@ -1,0 +1,39 @@
+import requests
+import json
+from datetime import datetime
+def time_from_utc_with_timezone(utc_with_tz):
+local_time= datetime.utcformattimestamp(utc_with_tz)
+	return local_time.time()
+api_key=""
+city_name =input("enter city name :")
+weather_url= '
+response=requsts.get(weathert_url)
+
+weather_data = response.json()
+
+if weather_data ['cod']==200:
+kelvin=273.15
+temp=int(weather_data['main']['temp']-kelvin)
+pressure=weather_data ['main']['pressure']
+humidity=weather_data['main']['humidity']
+wind_speed = weather_data['wind']['speed']
+sunrise=weather_data['sys']['sunrise']
+sunset = weather_data['sys']['sunset']
+timezone= weather_data['timezone']
+cloudy=weather_data['clouds']['all']
+description= weather_data['weather'][0]['description']
+
+
+sunrise_time = time_from_utc_with_timezone(sunrise+timezone)
+sunset_time = time_from_utc_with_timezone(sunrise +timezone)
+
+	print(f "weather information for city: {city_name}")
+print(f "temperature (celsius): {temp}")
+print(f "pressure: {pressure}hpa")
+print(f "humidity : {humidity}%")
+print(f "wind speed :{0:.2f}km/hr" format.(wind_speed))
+print(f "sunrise at : {sunrise_time} and sunset at{sunset_time}")
+print(f "cloudy :{cloudy}%")
+prinf(f "info :{description}")
+else
+print(f "city name:{city_name} was not found!")
